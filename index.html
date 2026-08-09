@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অনলাইন প্রগতি পত্র ২০২৬</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background-color: #ede7f6; 
+            margin: 4px; 
+            color: #222; 
+        }
+        .search-area { 
+            max-width: 100%; 
+            width: 700px; 
+            margin: 0 auto 15px; 
+            background: #fff; 
+            padding: 15px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            box-sizing: border-box;
+        }
+        .search-title { 
+            font-size: 16px; 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+            color: #6200ee; 
+            text-align: center; 
+        }
+        .search-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            gap: 10px; 
+            margin-bottom: 15px; 
+        }
+        .form-group { 
+            display: flex; 
+            flex-direction: column; 
+            text-align: left; 
+        }
+        .form-group label { 
+            font-size: 12px; 
+            font-weight: bold; 
+            margin-bottom: 3px; 
+            color: #555; 
+        }
+        .form-group input, .form-group select { 
+            padding: 8px; 
+            font-size: 13px; 
+            border: 1px solid #aaa; 
+            border-radius: 4px; 
+            outline: none; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .search-btn { 
+            display: block; 
+            width: 100%; 
+            padding: 10px; 
+            font-size: 15px; 
+            background: #6200ee; 
+            color: #fff; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-weight: bold; 
+        }
+        #status-msg { 
+            text-align: center; 
+            font-weight: bold; 
+            margin-top: 8px; 
+            font-size: 13px;
+        }
+        .report-card { 
+            max-width: 1050px; 
+            margin: 0 auto; 
+            background: #fff; 
+            padding: 10px 12px; 
+            border: 1.5px solid #444; 
+            border-radius: 4px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+            display: none; 
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+        }
+        .report-card::before {
+            content: "PRITHIBA K.G.C.M HIGH SCHOOL(H.S)"; 
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-size: 42px;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.03); 
+            white-space: nowrap;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .table-responsive {
+            width: 100%;
+            margin-bottom: 6px;
+        }
+        .header-table, .data-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+        }
+        .header-table td { 
+            padding: 4px 6px; 
+            border: 1px solid #777; 
+            background-color: #fffde7; 
+            font-weight: bold; 
+            font-size: 11.5px; 
+        }
+        .data-table th, .data-table td { 
+            border: 1px solid #555; 
+            text-align: center; 
+            padding: 3px 2px; 
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .data-table th { 
+            background-color: #eceff1; 
+            font-weight: bold; 
+            font-size: 10px;
+            line-height: 1.2;
+        }
+        .subj-name { 
+            text-align: left !important; 
+            font-weight: bold; 
+            background-color: #fcfcfc; 
+            padding-left: 5px; 
+        }
+        .section-header { 
+            background-color: #cfd8dc !important; 
+            font-weight: bold; 
+            font-size: 10.5px; 
+            padding: 2px 0;
+        }
+        .grid-split { 
+            display: grid; 
+            grid-template-columns: 1.1fr 0.9fr; 
+            gap: 10px; 
+            margin-top: 6px; 
+        }
+        .signature-box { 
+            margin-top: 45px; 
+            text-align: center; 
+            font-weight: bold; 
+            border-top: 1.5px dashed #444; 
+            width: 160px; 
+            float: right; 
+            padding-top: 5px; 
+            font-size: 12px;
+        }
+        .clear { 
+            clear: both; 
+        }
+        @media print { 
+            @page { size: A4 landscape; margin: 0.15in 0.15in !important; }
+            .search-area, .no-print { display: none !important; } 
+            body { background-color: #fff; margin: 0; padding: 0; } 
+            .report-card { border: 1px solid #222; box-shadow: none; padding: 3px; width: 100% !important; max-width: 100% !important; transform: scale(0.89); transform-origin: top center; display: block !important; } 
+            .report-card::before { color: rgba(0, 0, 0, 0.045) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .table-responsive { margin-bottom: 2px; }
+            .data-table th, .data-table td { padding: 1.5px 1px !important; font-size: 10.5px !important; }
+        }
+                /* স্কুলের নাম এবং লোগো হেডারের ডিজাইন */
+        .school-header {
+            text-align: center;
+            margin-bottom: 15px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 100%;
+            width: 700px;
+            margin: 0 auto 10px;
+            box-sizing: border-box;
+        }
+        .school-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6200ee;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        .school-sub {
+            font-size: 10px;
+            color: #555;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- স্কুলের প্রধান হেডার -->
+<div class="school-header">
+    <h1 class="school-name">PRITHIBA K.G.C.M HIGH SCHOOL(H.S)</h1>
+    <div class="school-sub">ONLINE PROGRESS REPORT PORTAL (অনলাইন প্রগতি পত্র পোর্টাল)</div>
+</div>
+
+
+<div class="search-area">
+    <div class="search-title">🎓 প্রগতি পত্র অনুসন্ধান পোর্টাল</div>
+    <div class="search-grid">
+        <div class="form-group"><label>• শিক্ষাবর্ষ (Year)</label><input type="text" id="yearInput" placeholder="2026"></div>
+        <div class="form-group"><label>• শিক্ষার্থীর নাম (Name)</label><input type="text" id="nameInput" placeholder="নাম"></div>
+        <div class="form-group">
+            <label>• শ্রেণী ও শাখা (Class)</label>
+            <select id="classInput">
+                <option value="">বাছাই করুন</option>
+                <option value="VII(A)">VII(A)</option><option value="VII(B)">VII(B)</option>
+                <option value="VIII(A)">VIII(A)</option><option value="VIII(B)">VIII(B)</option>
+            </select>
+        </div>
+        <div class="form-group"><label>• রোল নম্বর (Roll)</label><input type="text" id="rollInput" placeholder="1"></div>
+    </div>
+    <button class="search-btn" id="searchBtn">🔍 রেজাল্ট দেখুন</button>
+    <div id="status-msg"></div>
+</div>
+
+<div class="report-card" id="cardContainer">
+    <div class="table-responsive">
+        <table class="header-table">
+            <tr>
+                <td>STUDENT UNIQUE ID</td><td id="d_id" style="font-weight:normal; background:#fff;"></td>
+                <td>NAME</td><td id="d_name" style="font-weight:bold; background:#fff;"></td>
+                <td>Roll</td><td id="d_roll" style="font-weight:normal; background:#fff; text-align:center;"></td>
+                <td>Class&Section</td><td id="d_class" style="font-weight:normal; background:#fff;"></td>
+                <td>Year</td><td id="d_year" style="font-weight:normal; background:#fff; text-align:center;"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th rowspan="3" style="width: 22%;">Subject (বিষয়)</th>
+                    <th colspan="9">Formative Evaluation (জ্ঞানগঠনকালীন মূল্যায়ন)</th>
+                    <th colspan="5">Summative Evaluation (পর্যায়ক্রমিক মূল্যায়ন)</th>
+                </tr>
+                <tr>
+                    <th colspan="3">1st Formative</th>
+                    <th colspan="3">2nd Formative</th>
+                    <th colspan="3">3rd Formative</th>
+                    <th rowspan="2">1st S.E.<br>(15)</th>
+                    <th rowspan="2">2nd S.E.<br>(25)</th>
+                    <th rowspan="2">3rd S.E.<br>(35)</th>
+                    <th rowspan="2">Total<br>(150)</th>
+                    <th rowspan="2">Percentage</th>
+                </tr>
+                <tr>
+                    <th>F1A</th><th>F1B</th><th>F1C</th><th>F2A</th><th>F2B</th><th>F2C</th><th>F3A</th><th>F3B</th><th>F3C</th>
+                </tr>
+            </thead>
+            <tbody id="subjectRows"></tbody>
+        </table>
+    </div>
+
+    <div class="grid-split">
+        <div>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr><th colspan="4" class="section-header">Learning Perspective of Cognitive Domain</th></tr>
+                        <tr><th style="width:55%;">Items / বিষয় সমূহ</th><th style="width:15%;">S1</th><th style="width:15%;">S2</th><th style="width:15%;">S3</th></tr>
+                    </thead>
+                    <tbody id="cognitiveRows"></tbody>
+                </table>
+            </div>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr><th class="section-header" style="text-align:left; padding-left:8px;">Behavioural Cognitive Outcomes</th><th style="width:15%;">F1</th><th style="width:15%;">F2</th><th style="width:15%;">F3</th></tr>
+                    </thead>
+                    <tbody id="behavioralRows"></tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr><th colspan="2" class="section-header">Development of Personality & Life Skills</th></tr>
+                        <tr><th style="width:65%;">Subject</th><th>Remarks</th></tr>
+                    </thead>
+                    <tbody id="personalityRows"></tbody>
+                </table>
+            </div>
+            <div class="signature-box">Teacher's Signature</div>
+        </div>
+    </div>
+    <div class="clear"></div>
+     <div style="text-align: center; margin-top: 30px;" class="no-print">
+        <button onclick="window.print()" style="padding: 12px 30px; font-size: 16px; background-color: #2db742; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">🖨️ প্রগতি পত্র প্রিন্ট / PDF ডাউনলোড</button>
+    </div>
+</div>
+    <!-- EXTERNAL JAVASCRIPT FILE KEEPS IT SAFE FROM BROWSER SCRIPT ERRORS -->
+<script src="script.js"></script>
+</body>
+</html>
