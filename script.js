@@ -1,5 +1,5 @@
 
-// ⚠️ আপনার গুগল অ্যাপ স্ক্রিপ্ট ওয়েব অ্যাপ URLটি এখানে দিন:
+
 const webAppUrl = "https://script.google.com/macros/s/AKfycbzYMjzKhbpvw5FWTOvvwzRP8xW7AQjafOz3g74nSNgzuapCwNrx8PLZAvA2qUiVui1E/exec";
 
 const subjects = [
@@ -11,8 +11,6 @@ const subjects = [
     { name: "ENVIRONMENT AND GEOGRAPHY", prefix: "geo" },
     { name: "ENVIRONMENT AND HISTORY", prefix: "his" }
 ];
-
-// ১. সার্চ বাটন ট্রিপ ইভেন্ট লিসেনার সেটআপ
 document.getElementById('searchBtn').addEventListener('click', async function() {
     const year = document.getElementById('yearInput').value.trim();
     const name = document.getElementById('nameInput').value.trim();
@@ -50,8 +48,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
         document.getElementById('d_class').innerText = d.class || '';
         document.getElementById('d_year').innerText = d.year || '';
 
-        // সাবজেক্ট টেবিল গ্রিড জেনারেট করা
-        let subHtml = '';
+      let subHtml = '';
         subjects.forEach(s => {
             subHtml += `<tr>
                 <td class="subj-name">${s.name}</td>
@@ -63,7 +60,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
             </tr>`;
         });
         
-        // ART & WORK EDUCATION
+        
         subHtml += `<tr>
             <td class="subj-name">ART & WORK EDUCATION</td>
             <td>${d.art_f1a||0}</td><td>${d.art_f1b||0}</td><td>${d.art_f1c||0}</td>
@@ -73,7 +70,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
             <td>${d.art_total||0}</td><td>${d.art_per||0}</td>
         </tr>`;
         
-        // HEALTH & PHYSICAL EDUCATION
+        
         subHtml += `<tr>
             <td class="subj-name">HEALTH & PHYSICAL EDUCATION</td>
             <td>${d.hlth_f1a||0}</td><td>${d.hlth_f1b||0}</td><td>${d.hlth_f1c||0}</td>
@@ -83,7 +80,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
             <td>${d.hlth_total||0}</td><td>${d.hlth_per||0}</td>
         </tr>`;
         
-        // Total Row
+        
         subHtml += `<tr style="background:#cfd8dc; font-weight:bold;">
             <td class="subj-name">Total</td>
             <td>${d.tot_f1a||0}</td><td>${d.tot_f1b||0}</td><td>${d.tot_f1c||0}</td>
@@ -95,7 +92,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
         
         document.getElementById('subjectRows').innerHTML = subHtml;
 
-        // কগনিটিভ ডোমেইন
+        
         document.getElementById('cognitiveRows').innerHTML = `
             <tr><td style="text-align:left;">Pattern of intelligence</td><td>${d.cog_1||''}</td><td>${d.cog_8||''}</td><td>${d.cog_15||''}</td></tr>
             <tr><td style="text-align:left;">Area of interest</td><td>${d.cog_2||''}</td><td>${d.cog_9||''}</td><td>${d.cog_16||''}</td></tr>
@@ -105,7 +102,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
             <tr><td style="text-align:left;">Learning gaps</td><td>${d.cog_6||''}</td><td>${d.cog_13||''}</td><td>${d.cog_20||''}</td></tr>
             <tr><td style="text-align:left;">Specific learning difficulties</td><td>${d.cog_7||''}</td><td>${d.cog_14||''}</td><td>${d.cog_21||''}</td></tr>`;
 
-        // বিহেভিওরাল সেকশন
+        
         document.getElementById('behavioralRows').innerHTML = `
             <tr><td style="text-align:left;">Self Awareness</td><td>${d.beh_1||''}</td><td>${d.beh_12||''}</td><td>${d.beh_23||''}</td></tr>
             <tr><td style="text-align:left;">Communication Skill</td><td>${d.beh_2||''}</td><td>${d.beh_13||''}</td><td>${d.beh_24||''}</td></tr>
@@ -119,7 +116,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
             <tr><td style="text-align:left;">Aesthetic Appreciation</td><td>${d.beh_10||''}</td><td>${d.beh_21||''}</td><td>${d.beh_32||''}</td></tr>
             <tr><td style="text-align:left;">Teacher’s Perception (Overall)</td><td>${d.beh_11||''}</td><td>${d.beh_22||''}</td><td>${d.beh_33||''}</td></tr>`;
 
-        // পার্সোনালিটি ও লাইফ স্কিল
+        
         document.getElementById('personalityRows').innerHTML = `
             <tr><td style="text-align:left;">Listening Skill</td><td>${d.ps_1||''}</td></tr><tr><td style="text-align:left;">Communication Skill</td><td>${d.ps_2||''}</td></tr>
             <tr><td style="text-align:left;">Empathy Skill</td><td>${d.ps_3||''}</td></tr><tr><td style="text-align:left;">Co-operation Skill</td><td>${d.ps_4||''}</td></tr>
@@ -137,8 +134,6 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
         console.error(err); 
     }
 });
-
-// 🎯 ২. প্রিন্ট বাটন ক্লিকের ডেডিকেটেড ইভেন্ট লিসেনার (১০০% কাজ করবে) 
- document.getElementById('printBtn').addEventListener('click', function() {
+document.getElementById('printBtn').addEventListener('click', function() {
     window.print();
 });
