@@ -56,38 +56,39 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
                 <td>${d[s.prefix+'_f2a']||''}</td><td>${d[s.prefix+'_f2b']||''}</td><td>${d[s.prefix+'_f2c']||''}</td>
                 <td>${d[s.prefix+'_f3a']||''}</td><td>${d[s.prefix+'_f3b']||''}</td><td>${d[s.prefix+'_f3c']||''}</td>
                 <td>${d[s.prefix+'_s1']||''}</td><td>${d[s.prefix+'_s2']||''}</td><td>${d[s.prefix+'_s3']||''}</td>
-                <td>${d[s.prefix+'_total']||''}</td><td>${d[s.prefix+'_per']||''}</td>
+               <td>${d[s.prefix+'_total']||''}</td><td>${d[s.prefix+'_per'] ? Number(d[s.prefix+'_per']).toFixed(1) : ''}</td>
+
             </tr>`;
         });
         
         
         subHtml += `<tr>
             <td class="subj-name">ART & WORK EDUCATION</td>
-            <td>${d.art_f1a||0}</td><td>${d.art_f1b||0}</td><td>${d.art_f1c||0}</td>
-            <td>${d.art_f2a||0}</td><td>${d.art_f2b||0}</td><td>${d.art_f2c||0}</td>
-            <td>${d.art_f3a||0}</td><td>${d.art_f3b||0}</td><td>${d.art_f3c||0}</td>
-            <td>${d.art_s1||0}</td><td>${d.art_s2||0}</td><td>${d.art_s3||0}</td>
-            <td>${d.art_total||0}</td><td>${d.art_per||0}</td>
-        </tr>`;
+            <td>${d.art_f1a||''}</td><td>${d.art_f1b||''}</td><td>${d.art_f1c||''}</td>
+            <td>${d.art_f2a||''}</td><td>${d.art_f2b||''}</td><td>${d.art_f2c||''}</td>
+            <td>${d.art_f3a||''}</td><td>${d.art_f3b||''}</td><td>${d.art_f3c||''}</td>
+            <td>${d.art_s1||''}</td><td>${d.art_s2||''}</td><td>${d.art_s3||''}</td>
+            <td>${d.art_total||''}</td><td>${d.art_per ? Number(d.art_per).toFixed(1) : ''}</td>
+         </tr>`;
         
         
         subHtml += `<tr>
             <td class="subj-name">HEALTH & PHYSICAL EDUCATION</td>
-            <td>${d.hlth_f1a||0}</td><td>${d.hlth_f1b||0}</td><td>${d.hlth_f1c||0}</td>
-            <td>${d.hlth_f2a||0}</td><td>${d.hlth_f2b||0}</td><td>${d.hlth_f2c||0}</td>
-            <td>${d.hlth_f3a||0}</td><td>${d.hlth_f3b||0}</td><td>${d.hlth_f3c||0}</td>
-            <td>${d.hlth_s1||0}</td><td>${d.hlth_s2||0}</td><td>${d.hlth_s3||0}</td>
-            <td>${d.hlth_total||0}</td><td>${d.hlth_per||0}</td>
+            <td>${d.hlth_f1a||''}</td><td>${d.hlth_f1b||''}</td><td>${d.hlth_f1c||''}</td>
+            <td>${d.hlth_f2a||''}</td><td>${d.hlth_f2b||''}</td><td>${d.hlth_f2c||''}</td>
+            <td>${d.hlth_f3a||''}</td><td>${d.hlth_f3b||''}</td><td>${d.hlth_f3c||''}</td>
+            <td>${d.hlth_s1||''}</td><td>${d.hlth_s2||''}</td><td>${d.hlth_s3||''}</td>
+            <td>${d.hlth_total||''}</td><td>${d.hlth_per||''}</td>
         </tr>`;
         
         
         subHtml += `<tr style="background:#cfd8dc; font-weight:bold;">
             <td class="subj-name">Total</td>
-            <td>${d.tot_f1a||0}</td><td>${d.tot_f1b||0}</td><td>${d.tot_f1c||0}</td>
-            <td>${d.tot_f2a||0}</td><td>${d.tot_f2b||0}</td><td>${d.tot_f2c||0}</td>
-            <td>${d.tot_f3a||0}</td><td>${d.tot_f3b||0}</td><td>${d.tot_f3c||0}</td>
-            <td>${d.tot_s1||0}</td><td>${d.tot_s2||0}</td><td>${d.tot_s3||0}</td>
-            <td>${d.grand_total||0}</td><td>${d.grand_per||0}</td>
+            <td>${d.tot_f1a||''}</td><td>${d.tot_f1b||''}</td><td>${d.tot_f1c||''}</td>
+            <td>${d.tot_f2a||''}</td><td>${d.tot_f2b||''}</td><td>${d.tot_f2c||''}</td>
+            <td>${d.tot_f3a||''}</td><td>${d.tot_f3b||''}</td><td>${d.tot_f3c||''}</td>
+            <td>${d.tot_s1||''}</td><td>${d.tot_s2||''}</td><td>${d.tot_s3||''}</td>
+            <td>${d.grand_total||''}</td><td>${d.grand_per||''}</td>
         </tr>`;
         
         document.getElementById('subjectRows').innerHTML = subHtml;
