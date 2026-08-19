@@ -77,7 +77,7 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
             <td>${d.hlth_f2a||''}</td><td>${d.hlth_f2b||''}</td><td>${d.hlth_f2c||''}</td>
             <td>${d.hlth_f3a||''}</td><td>${d.hlth_f3b||''}</td><td>${d.hlth_f3c||''}</td>
             <td>${d.hlth_s1||''}</td><td>${d.hlth_s2||''}</td><td>${d.hlth_s3||''}</td>
-            <td>${d.hlth_total||''}</td><td>${d.hlth_per? Number(d.hlth_per).toFixed(1) : ''}</td>
+            <td>${d.hlth_total||''}</td><td>${d.hlth_per ? Number(d.hlth_per).toFixed(1) : ''}</td>
         </tr>`;
         
         
