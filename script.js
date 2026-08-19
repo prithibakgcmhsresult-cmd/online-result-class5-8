@@ -52,11 +52,11 @@ document.getElementById('searchBtn').addEventListener('click', async function() 
         subjects.forEach(s => {
             subHtml += `<tr>
                 <td class="subj-name">${s.name}</td>
-                <td>${d[s.prefix+'_f1a']||0}</td><td>${d[s.prefix+'_f1b']||0}</td><td>${d[s.prefix+'_f1c']||0}</td>
-                <td>${d[s.prefix+'_f2a']||0}</td><td>${d[s.prefix+'_f2b']||0}</td><td>${d[s.prefix+'_f2c']||0}</td>
-                <td>${d[s.prefix+'_f3a']||0}</td><td>${d[s.prefix+'_f3b']||0}</td><td>${d[s.prefix+'_f3c']||0}</td>
-                <td>${d[s.prefix+'_s1']||0}</td><td>${d[s.prefix+'_s2']||0}</td><td>${d[s.prefix+'_s3']||0}</td>
-                <td>${d[s.prefix+'_total']||0}</td><td>${d[s.prefix+'_per']||0}</td>
+                <td>${d[s.prefix+'_f1a']||''}</td><td>${d[s.prefix+'_f1b']||''}</td><td>${d[s.prefix+'_f1c']||''}</td>
+                <td>${d[s.prefix+'_f2a']||''}</td><td>${d[s.prefix+'_f2b']||''}</td><td>${d[s.prefix+'_f2c']||''}</td>
+                <td>${d[s.prefix+'_f3a']||''}</td><td>${d[s.prefix+'_f3b']||''}</td><td>${d[s.prefix+'_f3c']||''}</td>
+                <td>${d[s.prefix+'_s1']||''}</td><td>${d[s.prefix+'_s2']||''}</td><td>${d[s.prefix+'_s3']||''}</td>
+                <td>${d[s.prefix+'_total']||''}</td><td>${d[s.prefix+'_per']||''}</td>
             </tr>`;
         });
         
